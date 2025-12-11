@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Vendas - Sistema de Vendas</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+    <h1>Registrar Venda (Com Carrinho)</h1>
+</header>
+
+<nav class="menu">
+    <a href="index.html">Clientes</a>
+    <a href="produtos.html">Produtos</a>
+    <a href="vendas.html" class="active">Vendas</a>
+</nav>
+
+<main class="container">
+
+    <section class="form-section">
+        <h2>Nova Venda</h2>
+
+        <!-- Selecionar cliente (escolhido uma vez no início) -->
+        <label>Cliente</label>
+        <select id="clienteSelect" required></select>
+
+        <!-- Linha produto + qtd + adicionar -->
+        <div class="linha-produto">
+            <label>Produto</label>
+            <select id="produtoSelect">
+                <option value="">Selecione</option>
+            </select>
+
+            <label>Quantidade</label>
+            <input type="number" id="quantidade" min="1" value="1">
+
+            <button id="addProdutoBtn" type="button">Adicionar ao Carrinho</button>
+        </div>
+
+        <!-- Carrinho -->
+        <h3>Carrinho</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Produto</th>
+                    <th>Qtd</th>
+                    <th>Unit. (R$)</th>
+                    <th>Subtotal (R$)</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="carrinhoBody">
+                <!-- itens aqui -->
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3" style="text-align:right"><strong>Total Geral:</strong></td>
+                    <td colspan="2" id="totalGeral">R$ 0.00</td>
+                </tr>
+            </tfoot>
+        </table>
+
+        <!-- Pagamento e Finalizar -->
+        <label>Forma de Pagamento</label>
+        <select id="pagamento" disabled>
+            <option value="">Selecione</option>
+            <option value="Dinheiro">Dinheiro</option>
+            <option value="PIX">PIX</option>
+            <option value="Cartão - Crédito">Cartão - Crédito</option>
+            <option value="Cartão - Débito">Cartão - Débito</option>
+        </select>
+
+        <div style="margin-top:10px;">
+            <button id="finalizarVendaBtn" type="button" disabled>Finalizar Venda</button>
+            <button id="limparCarrinhoBtn" type="button">Limpar Carrinho</button>
+        </div>
+    </section>
+
+    <section class="list-section">
+        <h2>Histórico de Vendas</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Cliente</th>
+                    <th>Itens</th>
+                    <th>Total Geral</th>
+                    <th>Pagamento</th>
+                    <th>Data</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="listaVendas"></tbody>
+        </table>
+    </section>
+
+</main>
+
+<script src="js/vendas.js"></script>
+</body>
+</html>
