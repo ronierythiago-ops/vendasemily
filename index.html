@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Emily Vendas — Clientes</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#1976d2">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <header class="topbar">
+    <h1>Emily Vendas</h1>
+    <nav class="menu">
+      <a href="index.html" class="active">Clientes</a>
+      <a href="produtos.html">Produtos</a>
+      <a href="vendas.html">Vendas</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2 id="form-title">Cadastrar Cliente</h2>
+      <form id="clienteForm" class="form">
+        <input type="hidden" id="clienteIndex">
+        <label>Nome completo</label>
+        <input id="nome" type="text" required />
+        <label>Telefone</label>
+        <input id="telefone" type="tel" placeholder="(00) 00000-0000" required />
+        <label>Email</label>
+        <input id="email" type="email" placeholder="email@exemplo.com" />
+        <label>Endereço</label>
+        <input id="endereco" type="text" placeholder="Rua, Nº, Bairro, Cidade" />
+        <div class="row">
+          <button id="btnSalvar" type="submit" class="btn primary">Salvar</button>
+          <button id="btnNovo" type="button" class="btn secondary" onclick="resetForm()">Novo</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Lista de clientes</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Telefone</th>
+            <th>Email</th>
+            <th>Endereço</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody id="listaClientes"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer class="footer">Desenvolvido por Roniery Thiago</footer>
+
+  <script src="js/clientes.js"></script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then(() => console.log('SW registrado'))
+        .catch(e => console.warn('SW falhou', e));
+    }
+  </script>
+</body>
+
+</html>

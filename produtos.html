@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Emily Vendas — Produtos</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#1976d2">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>Emily Vendas</h1>
+   <nav class="menu">
+    <a href="index.html" class="active">Clientes</a>
+    <a href="produtos.html">Produtos</a>
+    <a href="vendas.html">Vendas</a>
+</nav>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2 id="form-title-prod">Cadastrar Produto</h2>
+      <form id="produtoForm" class="form">
+        <input type="hidden" id="produtoIndex">
+        <label>Nome do produto</label>
+        <input id="nomeProd" type="text" required />
+        <label>Preço (R$)</label>
+        <input id="preco" type="number" step="0.01" min="0" required />
+        <div class="row">
+          <button class="btn primary" type="submit">Salvar</button>
+          <button class="btn secondary" type="button" onclick="resetProdForm()">Novo</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Lista de produtos</h2>
+      <table class="table">
+        <thead><tr><th>Nome</th><th>Preço</th><th>Ações</th></tr></thead>
+        <tbody id="listaProdutos"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer class="footer">Desenvolvido por Roniery Thiago</footer>
+
+  <script src="js/produtos.js"></script>
+</body>
+</html>
